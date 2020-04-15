@@ -21,12 +21,6 @@ class Event
     # require "pry";binding.pry
     end
   end
-  # 
-  # def list_items
-  #   inventories = @food_trucks.map {|food_truck| food_truck.inventory}
-  #   item_names = inventories.flat_map {|inventory| inventory.keys}
-  #   item_names.uniq
-  # end
 
   def total_inventory
     total = {}
@@ -39,7 +33,22 @@ class Event
     end
     total
   end
+
+  def overstocked_items
+    total_inventory.select do |item, item_info|
+      item_info[:quantity] > 50 && item_info[:food_trucks].length > 1
+    end.keys
+  end
+
+  def sorted_item_list
+    items = total_inventory.keys.map do |item|
+      item.name
+    end
+    items.sort
+  end
 end
+
+#sort alphabetically .sort
 
 # class Hash
 #   def compact(opts={})
