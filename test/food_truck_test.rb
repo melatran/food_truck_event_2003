@@ -51,6 +51,6 @@ class FoodTruckTest < Minitest::Test
 
     assert_equal 148.75, @food_truck1.potential_revenue
     assert_equal 345.00, @food_truck2.potential_revenue
-    assert_equal 243,75, @food_truck3.potential_revenue
+    assert_equal 243.75, @food_truck3.potential_revenue
   end
 end
