@@ -22,4 +22,9 @@ class FoodTruckTest < Minitest::Test
   def test_can_check_stock
     assert_equal 0, @food_truck.check_stock(@item1)
   end
+
+  def test_add_stock_to_inventory
+    @food_truck.stock(@item1, 30)
+    assert_equal expected, @food_truck.inventory
+  end
 end
